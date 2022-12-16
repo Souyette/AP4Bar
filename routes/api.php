@@ -18,3 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/Bar', ['App\Http\Controllers\BAR', 'listbar']);
+Route::get('/BarInfo/{idBar}', ['App\Http\Controllers\BAR', 'BarInfo']);

@@ -42,7 +42,7 @@ class BOISSON extends Model
 		'VOLUME'
 	];
 
-	public function p_r_o_d_u_i_t()
+	public function produits()
 	{
 		return $this->belongsTo(PRODUIT::class, 'ID_PRODUIT');
 	}

@@ -35,18 +35,18 @@ class STOCKER extends Model
 		'QUANTITESTOCK' => 'int',
 		'PRIX' => 'int'
 	];
-
+    protected $with = ['bar'];
 	protected $fillable = [
 		'QUANTITESTOCK',
 		'PRIX'
 	];
 
-	public function b_a_r()
+	public function bar()
 	{
 		return $this->belongsTo(BAR::class, 'ID_BAR');
 	}
 
-	public function p_r_o_d_u_i_t()
+	public function produit()
 	{
 		return $this->belongsTo(PRODUIT::class, 'ID_PRODUIT');
 	}

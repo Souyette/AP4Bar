@@ -17,7 +17,9 @@ class BoissonFactory extends Factory
     public function definition()
     {
         return [
-            'ID_PRODUIT' => $this->faker->numberBetween(55, 100),
+            'ID_PRODUIT' => $this->faker->numberBetween(10, 20),
+            'ESTALCOOLISE' => $this->faker->numberBetween(1, 1),
+            'DEGREALCOOL' => $this->faker->numberBetween(6, 20),
             'VOLUME' => $this->faker->numberBetween(12.5, 25),
         ];
     }

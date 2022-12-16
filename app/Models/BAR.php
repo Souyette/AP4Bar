@@ -70,7 +70,7 @@ class BAR extends Model
 		return $this->hasMany(RECOI::class, 'ID_BAR');
 	}
 
-	public function s_t_o_c_k_e_r_s()
+	public function stocker()
 	{
 		return $this->hasMany(STOCKER::class, 'ID_BAR');
 	}

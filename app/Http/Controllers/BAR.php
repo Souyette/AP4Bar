@@ -10,4 +10,9 @@ class BAR extends Controller
         //Création format JSON pour API
         return response()->json(\App\Models\BAR::with('typebar')->get());
     }
+
+    public function BarInfo($idBar){
+        //Création format JSON pour API
+        return response()->json(\App\Models\BAR::where('ID_BAR',$idBar)->with('stocker')->with('barmen')->get());
+    }
 }
