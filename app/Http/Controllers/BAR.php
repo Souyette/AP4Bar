@@ -13,6 +13,6 @@ class BAR extends Controller
 
     public function BarInfo($idBar){
         //Création format JSON pour API
-        return response()->json(\App\Models\BAR::where('ID_BAR',$idBar)->with('stocker')->get());
+        return response()->json(\App\Models\BAR::where('ID_BAR',$idBar)->with('stocker')->with('typebar')->get());
     }
 }
