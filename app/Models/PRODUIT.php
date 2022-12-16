@@ -34,8 +34,8 @@ class PRODUIT extends Model
 	protected $fillable = [
 		'NOM_PRODUIT'
 	];
-
-	public function b_o_i_s_s_o_n()
+    protected $with = ['nourriture','boisson'];
+	public function boisson()
 	{
 		return $this->hasOne(BOISSON::class, 'ID_PRODUIT');
 	}
@@ -50,7 +50,7 @@ class PRODUIT extends Model
 		return $this->hasMany(COMPOSER::class, 'ID_PRODUIT');
 	}
 
-	public function n_o_u_r_r_i_t_u_r_e()
+	public function nourriture()
 	{
 		return $this->hasOne(NOURRITURE::class, 'ID_PRODUIT');
 	}
