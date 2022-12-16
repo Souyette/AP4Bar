@@ -7,14 +7,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class PRODUIT
- * 
+ *
  * @property int $ID_PRODUIT
  * @property string|null $NOM_PRODUIT
- * 
+ *
  * @property BOISSON $b_o_i_s_s_o_n
  * @property Collection|CATEGORISER[] $c_a_t_e_g_o_r_i_s_e_r_s
  * @property Collection|COMPOSER[] $c_o_m_p_o_s_e_r_s
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PRODUIT extends Model
 {
+    use HasFactory;
 	protected $table = 'PRODUIT';
 	protected $primaryKey = 'ID_PRODUIT';
 	public $timestamps = false;

@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $FERMETURE
  * @property string|null $ADRESSE
  *
- * @property TYPEBAR $t_y_p_e_b_a_r
+ * @property TYPEBAR $TYPEBAR
  * @property Collection|BARMAN[] $b_a_r_m_e_n
  * @property Collection|RECOI[] $r_e_c_o_i_s
  * @property Collection|STOCKER[] $s_t_o_c_k_e_r_s
@@ -36,6 +36,7 @@ class BAR extends Model
 	protected $primaryKey = 'ID_BAR';
 	public $timestamps = false;
 
+    //protected $with = ['typebar'];
 	protected $casts = [
 		'ID_TYPE' => 'int'
 	];
@@ -54,12 +55,12 @@ class BAR extends Model
 		'ADRESSE'
 	];
 
-	public function t_y_p_e_b_a_r()
+	public function typebar()
 	{
 		return $this->belongsTo(TYPEBAR::class, 'ID_TYPE');
 	}
 
-	public function b_a_r_m_e_n()
+	public function barmen()
 	{
 		return $this->hasMany(BARMAN::class, 'ID_BAR');
 	}

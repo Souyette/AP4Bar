@@ -11,10 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class TYPEBAR
- * 
+ *
  * @property int $ID_TYPE
  * @property string|null $NOM_TYPE
- * 
+ *
  * @property Collection|BAR[] $b_a_r_s
  *
  * @package App\Models
@@ -29,7 +29,7 @@ class TYPEBAR extends Model
 		'NOM_TYPE'
 	];
 
-	public function b_a_r_s()
+	public function bars()
 	{
 		return $this->hasMany(BAR::class, 'ID_TYPE');
 	}
