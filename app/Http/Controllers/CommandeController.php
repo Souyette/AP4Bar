@@ -13,12 +13,19 @@ class CommandeController extends Controller
         $commande->HEURECOMMANDE = now();
         $commande->save();
         $lastinsertID = $commande->IDCOMMANDE;
-        $composer = new Composer();
-        $composer->IDCOMMANDE = $lastinsertID;
-        $composer->ID_PRODUIT = $request->idP;
-        $composer->QUANTITE = $request->qte;
-        $composer->save();
-        return response()->json($commande,$composer);
+        $commandeContenu = [18 => 15,5 => 10,3 => 14];
+        foreach ($commandeContenu as $produit => $qte){
+        $this->commandeAfond($lastinsertID,$produit,$qte);
+        }
+    }
 
+    public function commandeAfond($id,$contenu,$qte){
+        $composer = new Composer();
+            COMPOSER::create([
+                $composer->IDCOMMANDE = $id,
+                $composer->ID_PRODUIT = $contenu,
+                $composer->QUANTITE = $qte,
+            ]);
+            $composer->save();
     }
 }
