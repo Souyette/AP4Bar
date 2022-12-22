@@ -10,11 +10,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class SURPLACE
- * 
+ *
  * @property int $IDCOMMANDE
  * @property int $ID_USER
  * @property string|null $NUMTABLE
- * 
+ *
  * @property BARMAN $b_a_r_m_a_n
  * @property COMMANDE $c_o_m_m_a_n_d_e
  *
@@ -37,12 +37,12 @@ class SURPLACE extends Model
 		'NUMTABLE'
 	];
 
-	public function b_a_r_m_a_n()
+	public function barman()
 	{
 		return $this->belongsTo(BARMAN::class, 'ID_USER');
 	}
 
-	public function c_o_m_m_a_n_d_e()
+	public function commande()
 	{
 		return $this->belongsTo(COMMANDE::class, 'IDCOMMANDE');
 	}

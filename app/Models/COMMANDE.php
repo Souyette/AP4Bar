@@ -12,10 +12,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class COMMANDE
- * 
+ *
  * @property int $IDCOMMANDE
  * @property Carbon|null $HEURECOMMANDE
- * 
+ *
  * @property Collection|AEMPORTER[] $a_e_m_p_o_r_t_e_r_s
  * @property AEMPORTER $a_e_m_p_o_r_t_e_r
  * @property Collection|COMPOSER[] $c_o_m_p_o_s_e_r_s
@@ -37,6 +37,7 @@ class COMMANDE extends Model
 	protected $fillable = [
 		'HEURECOMMANDE'
 	];
+    protected $with = ['composer'];
 
 	public function a_e_m_p_o_r_t_e_r_s()
 	{
@@ -48,7 +49,7 @@ class COMMANDE extends Model
 		return $this->hasOne(AEMPORTER::class, 'IDCOMMANDE_HER_1');
 	}
 
-	public function c_o_m_p_o_s_e_r_s()
+	public function composer()
 	{
 		return $this->hasMany(COMPOSER::class, 'IDCOMMANDE');
 	}

@@ -55,7 +55,7 @@ class PRODUIT extends Model
 		return $this->hasOne(NOURRITURE::class, 'ID_PRODUIT');
 	}
 
-	public function s_t_o_c_k_e_r_s()
+	public function stocker()
 	{
 		return $this->hasMany(STOCKER::class, 'ID_PRODUIT');
 	}
