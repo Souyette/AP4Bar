@@ -34,11 +34,9 @@ class CLIENT extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
-		'DATEINSCRIPTION',
-		'NOM',
-		'PRENOM',
-		'MAIL',
-		'MDP'
+        'name',
+        'email',
+        'password',
 	];
 
 	public function a_e_m_p_o_r_t_e_r_s()
