@@ -27,7 +27,8 @@ class AuthController extends Controller
                 [
                     'name' => 'required',
                     'email' => 'required|email|unique:users,email',
-                    'password' => 'required'
+                    'password' => 'required',
+                    'password2' => 'required'
                 ]);
 
             if($validateUser->fails()){
@@ -38,11 +39,20 @@ class AuthController extends Controller
                 ], 401);
             }
 
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password)
-            ]);
+            if($request->password == $request->password2){
+                $user = User::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password)
+                ]);
+            }
+            else{
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Passwords do NOT match',
+                ], 401);
+            }
+
 
             return response()->json([
                 'status' => true,

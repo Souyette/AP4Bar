@@ -68,7 +68,9 @@ class CommandeController extends Controller
         $commandeAppartenir->IDCOMMANDE = $lastinsertID;
         $commandeAppartenir->save();
 
-        $this->email($lastinsertID);
+        //$test = \App\Models\SURPLACE::where('ID_USER',$request->idBarman)->where('IDCOMMANDE',$lastinsertID)->with('barman')->with('commande')->first();
+        //dd($test);
+        //$this->email($test);
         //ta pas le prix parce que ça fait une boucle infinie car tu appel avec produit stocker et stocker appel produit ect..
         return response()->json(\App\Models\SURPLACE::where('ID_USER',$request->idBarman)->where('IDCOMMANDE',$lastinsertID)->with('barman')->with('commande')->get());
     }
