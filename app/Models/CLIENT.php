@@ -33,11 +33,13 @@ class CLIENT extends Model
 	protected $primaryKey = 'ID_USER';
 	public $timestamps = false;
 
-	protected $fillable = [
-        'name',
-        'email',
-        'password',
-	];
+    protected $fillable = [
+        'create_at',
+        'NOM',
+        'PRENOM',
+        'MAIL',
+        'MDP'
+    ];
 
 	public function a_e_m_p_o_r_t_e_r_s()
 	{

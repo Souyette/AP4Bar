@@ -25,6 +25,8 @@ Route::get('/GetBoissons/SansAlcool/{idBar}', ['App\Http\Controllers\ViewBoisson
 Route::get('/GetBoissons/{idBar}', ['App\Http\Controllers\ViewBoissonsController', 'getBoissons']);
 Route::post('/auth/register', ['App\Http\Controllers\Api\AuthController', 'createUser']);
 Route::post('/auth/login', ['App\Http\Controllers\Api\AuthController', 'loginUser'])->name('login');
+Route::post('/auth/loginServeur', ['App\Http\Controllers\Api\AuthServeurController', 'loginServeur'])->name('loginServeur');
+Route::post('/auth/mdpOublie', ['App\Http\Controllers\Api\AuthServeurController', 'mdpOublie'])->name('mdpOublie');
 Route::get('/random', ['App\Http\Controllers\Api\AuthController', 'random']);
 Route::get('/test', ['App\Http\Controllers\CommandeController', 'random']);
 Route::get('/email', ['App\Http\Controllers\CommandeController', 'email']);

@@ -36,7 +36,7 @@ class COMPOSER extends Model
 		'QUANTITE'
 	];
     protected $with = ['produit'];
-	public function c_o_m_m_a_n_d_e()
+	public function commande()
 	{
 		return $this->belongsTo(COMMANDE::class, 'IDCOMMANDE');
 	}

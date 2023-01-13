@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function a_e_m_p_o_r_t_e_r_s()
+    {
+        return $this->hasMany(AEMPORTER::class, 'ID_USER');
+    }
 }

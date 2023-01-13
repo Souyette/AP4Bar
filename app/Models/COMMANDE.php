@@ -39,7 +39,7 @@ class COMMANDE extends Model
 	];
     protected $with = ['composer'];
 
-	public function a_e_m_p_o_r_t_e_r_s()
+	public function aemporter()
 	{
 		return $this->hasMany(AEMPORTER::class, 'IDCOMMANDE');
 	}
@@ -54,12 +54,12 @@ class COMMANDE extends Model
 		return $this->hasMany(COMPOSER::class, 'IDCOMMANDE');
 	}
 
-	public function r_e_c_o_i_s()
+	public function recois()
 	{
 		return $this->hasMany(RECOI::class, 'IDCOMMANDE');
 	}
 
-	public function s_u_r_p_l_a_c_e()
+	public function surplace()
 	{
 		return $this->hasOne(SURPLACE::class, 'IDCOMMANDE');
 	}

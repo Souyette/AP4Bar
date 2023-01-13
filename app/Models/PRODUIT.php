@@ -40,12 +40,12 @@ class PRODUIT extends Model
 		return $this->hasOne(BOISSON::class, 'ID_PRODUIT');
 	}
 
-	public function c_a_t_e_g_o_r_i_s_e_r_s()
+	public function categorie()
 	{
 		return $this->hasMany(CATEGORISER::class, 'ID_PRODUIT');
 	}
 
-	public function c_o_m_p_o_s_e_r_s()
+	public function composer()
 	{
 		return $this->hasMany(COMPOSER::class, 'ID_PRODUIT');
 	}

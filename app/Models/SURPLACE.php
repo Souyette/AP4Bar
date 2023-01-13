@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 class SURPLACE extends Model
 {
 	protected $table = 'SURPLACE';
+    protected $with = ['barman','commande'];
 	protected $primaryKey = 'IDCOMMANDE';
 	public $incrementing = false;
 	public $timestamps = false;
