@@ -33,7 +33,10 @@ Route::get('/random', ['App\Http\Controllers\Api\AuthController', 'random']);
 Route::get('/test', ['App\Http\Controllers\CommandeController', 'random']);
 Route::get('/email', ['App\Http\Controllers\CommandeController', 'email']);
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/ajoutCommande/emporter/{idClient}/{idBar}', ['App\Http\Controllers\CommandeController', 'ajoutCommandeEmporter']);
+
+Route::middleware(['auth:sanctum', 'abilities:barman'])->group(function () {
     Route::post('/ajoutCommande/surplace/{idBarman}/{idBar}', ['App\Http\Controllers\CommandeController', 'ajoutCommandeSurplace']);
+});
+Route::middleware(['auth:sanctum', 'abilities:client'])->group(function () {
+    Route::post('/ajoutCommande/emporter/{idClient}/{idBar}', ['App\Http\Controllers\CommandeController', 'ajoutCommandeEmporter']);
 });

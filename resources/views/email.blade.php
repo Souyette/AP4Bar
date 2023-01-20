@@ -13,10 +13,14 @@ border-width: 2px; border-radius: 10px;">Merci {{ $mailData['Nom'] }} d'avoir pa
 <p>Commande passée à : {{ $mailData['HeureRetrait'] }}</p>
 <p>Code de retrait: {{ $mailData['Code'] }}</p>
 <h1>Détails de la commande</h1>
+<?php $prixTotal = 0 ?>
 @foreach($mailData['Produit']->composer as $contenuCommande)
     <p>Produit : {{ $contenuCommande->produit['NOM_PRODUIT'] }}</p>
     <p>Prix : {{ $contenuCommande->produit->stocker->pluck('PRIX')->first() }}</p>
+    <?php $prixTotal += $contenuCommande->produit->stocker->pluck('PRIX')->first() ?>
+
 @endforeach
+<p>Prix totale de la commande : {{ $prixTotal }} €</p>
 </body>
 </html>
 
