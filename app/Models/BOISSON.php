@@ -41,7 +41,7 @@ class BOISSON extends Model
 		'DEGREALCOOL',
 		'VOLUME'
 	];
-
+    //protected $with = ['stocker'];
 	public function produits()
 	{
 		return $this->belongsTo(PRODUIT::class, 'ID_PRODUIT');

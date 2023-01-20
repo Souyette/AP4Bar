@@ -35,7 +35,7 @@ class STOCKER extends Model
 		'QUANTITESTOCK' => 'int',
 		'PRIX' => 'int'
 	];
-    protected $with = ['produit'];
+
 	protected $fillable = [
 		'QUANTITESTOCK',
 		'PRIX'

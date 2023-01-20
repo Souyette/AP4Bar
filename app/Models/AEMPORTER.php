@@ -47,11 +47,16 @@ class AEMPORTER extends Model
 		'HEURERETRAIT',
 		'CODERETRAIT'
 	];
-
+    protected $with = ['user'];
 	public function client()
 	{
 		return $this->belongsTo(CLIENT::class, 'ID_USER');
 	}
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'ID_USER');
+    }
 
 	public function commande()
 	{

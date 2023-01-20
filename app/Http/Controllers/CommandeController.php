@@ -40,11 +40,12 @@ class CommandeController extends Controller
         $commandeAppartenir->ID_BAR = $request->idBar;
         $commandeAppartenir->IDCOMMANDE = $lastinsertID;
         $commandeAppartenir->save();
-        $infoEmail = \App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('client')->with('commande')->first();
+        //$infoEmail = \App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('client')->with('commande')->first();
+        $infoEmail = \App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('user')->with('commande')->first();
         //dd($test);
         $this->email($infoEmail);
 
-        return response()->json(\App\Models\AEMPORTER::where('id',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('user')->with('commande')->get());
+        return response()->json(\App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('user')->with('commande')->get());
     }
 
     public function ajoutCommandeSurplace(Request $request){
@@ -73,7 +74,7 @@ class CommandeController extends Controller
         //$this->email($test);
         //ta pas le prix parce que ça fait une boucle infinie car tu appel avec produit stocker et stocker appel produit ect..
 
-        return response()->json(\App\Models\SURPLACE::where('ID_USER',$request->idBarman)->where('IDCOMMANDE',$lastinsertID)->with('barman')->with('commande')->get());
+        return response()->json(\App\Models\SURPLACE::where('ID_USER',$request->idBarman)->where('IDCOMMANDE',$lastinsertID)->get());
     }
 
     public function commandeAfond($id,$contenu,$qte){
@@ -98,14 +99,12 @@ class CommandeController extends Controller
 
     public function email($id){
         $mailData = [
-            "Nom" => $id->client->NOM,
-            "Prenom" => $id->client->PRENOM,
+            "Nom" => $id->user->name,
             "HeureRetrait" => $id->HEURERETRAIT,
             "Code" => $id->CODERETRAIT,
-            "Produit" => $id->commande
+            "Produit" => $id->commande,
             //POURQUOI LE ID_PRODUIT NE MARCHE PAS
         ];
-
         Mail::to("hello@example.com")->send(new TestEmail($mailData));
 
         dd("Mail Sent Successfully!");

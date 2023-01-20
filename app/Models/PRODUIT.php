@@ -34,7 +34,7 @@ class PRODUIT extends Model
 	protected $fillable = [
 		'NOM_PRODUIT'
 	];
-    protected $with = ['nourriture','boisson'];
+    protected $with = ['nourriture','boisson','stocker'];
 	public function boisson()
 	{
 		return $this->hasOne(BOISSON::class, 'ID_PRODUIT');

@@ -35,7 +35,7 @@ class NOURRITURE extends Model
 	protected $fillable = [
 		'POIDS'
 	];
-
+   //protected $with = ['stocker'];
 	public function p_r_o_d_u_i_t()
 	{
 		return $this->belongsTo(PRODUIT::class, 'ID_PRODUIT');
