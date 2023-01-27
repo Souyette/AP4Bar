@@ -28,7 +28,7 @@ class CommandeController extends Controller
         }
 
         $commandeEmporter = new AEMPORTER();
-        $dateretrait = Carbon::now()->addHour(1);
+        $dateretrait = Carbon::now()->addHour(2);
         $commandeEmporter->IDCOMMANDE_HER_1 = $lastinsertID;
         $commandeEmporter->IDCOMMANDE = $lastinsertID;
         $commandeEmporter->ID_USER = $request->idClient;

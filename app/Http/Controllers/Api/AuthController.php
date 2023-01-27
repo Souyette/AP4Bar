@@ -164,6 +164,8 @@ class AuthController extends Controller
     }
 
 
+
+
     public function email(){
         $mailData = [
 

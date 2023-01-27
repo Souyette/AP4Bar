@@ -10,7 +10,7 @@
 <h1 style="border-color: #849460; border-style:solid;
 border-width: 2px; border-radius: 10px;">Merci {{ $mailData['Nom'] }} d'avoir passée commande chez nous !</h1>
 <p>Nom: {{ $mailData['Nom'] }}</p>
-<p>Commande passée à : {{ $mailData['HeureRetrait'] }}</p>
+<p>Heure de retrait : {{ $mailData['HeureRetrait'] }}</p>
 <p>Code de retrait: {{ $mailData['Code'] }}</p>
 <h1>Détails de la commande</h1>
 <?php $prixTotal = 0 ?>
