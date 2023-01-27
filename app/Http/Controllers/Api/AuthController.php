@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\ValidateSignature;
 use App\Mail\TestEmail;
+use App\Models\tokenid;
 use App\Models\User;
 use http\Client;
 use Illuminate\Http\Request;
@@ -116,6 +117,23 @@ class AuthController extends Controller
                 'message' => $th->getMessage()
             ], 500);
         }
+    }
+
+
+
+    // ----------------------------------------------------------------
+    // Deconnecte le client a l'aide de son token
+    // ----------------------------------------------------------------
+    public function logoutClient(Request $request)
+    {
+
+        $request->user()->tokens()->delete();
+
+        return response()->json(
+            [
+                'message' => 'Deconnecté'
+            ]
+        );
     }
 
     /**

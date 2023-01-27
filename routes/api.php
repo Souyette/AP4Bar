@@ -32,6 +32,9 @@ Route::post('/auth/verifyPin', ['App\Http\Controllers\Api\AuthServeurController'
 Route::get('/random', ['App\Http\Controllers\Api\AuthController', 'random']);
 Route::get('/test', ['App\Http\Controllers\CommandeController', 'random']);
 Route::get('/email', ['App\Http\Controllers\CommandeController', 'email']);
+Route::post('/auth/modifAccount', ['App\Http\Controllers\ClientController', 'ModifUtilisateur']);
+
+
 
 
 Route::middleware(['auth:sanctum', 'abilities:barman'])->group(function () {
@@ -39,4 +42,5 @@ Route::middleware(['auth:sanctum', 'abilities:barman'])->group(function () {
 });
 Route::middleware(['auth:sanctum', 'abilities:client'])->group(function () {
     Route::post('/ajoutCommande/emporter/{idClient}/{idBar}', ['App\Http\Controllers\CommandeController', 'ajoutCommandeEmporter']);
+    Route::post('/auth/logout', ['App\Http\Controllers\Api\AuthController', 'logoutClient']);
 });
