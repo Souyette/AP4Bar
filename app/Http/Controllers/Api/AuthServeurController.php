@@ -70,40 +70,6 @@ class AuthServeurController extends Controller
     }
 
 
-    public function fef(Request $request)
-    {
-        try {
-            $validateUser = Validator::make($request->all(),
-                [
-                    'email' => 'required|email',
-                ]);
-
-            if ($validateUser->fails()) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validateUser->errors()
-                ], 401);
-            }
-
-            $infoClient = \App\Models\BARMAN::where('MAIL', $request->email)->first();
-            if (!$infoClient) {
-                return response()->json([
-                    'message' => 'Email does not exist. Please retry'], 404);
-            } else {
-
-                return response()->json([
-                    'status' => true,
-                    'message' => 'Email Sent',
-                ], 200);
-            }
-        } catch (\Throwable $th) {
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 500);
-        }
-    }
 
     public function mdpOublie(Request $request)
     {

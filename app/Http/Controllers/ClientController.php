@@ -24,7 +24,7 @@ class ClientController extends Controller
         }
     }
 
-    function ModifUtilisateur(Request $request){
+    function ModifClient(Request $request){
       if($request->password1 == $request->password2){
           $user = new User();
           $user->name = $request->name;
