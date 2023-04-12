@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\BARMAN;
+
 return [
 
     /*
@@ -40,6 +42,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'BARMAN' => [
+            'driver' => 'session',
+            'provider' => 'barman',
+        ],
     ],
 
     /*
@@ -64,7 +70,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+        'barman' => [
+            'driver' => 'eloquent',
+            'model' => BARMAN::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

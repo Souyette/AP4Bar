@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class BARMAN
@@ -32,12 +33,13 @@ use Laravel\Sanctum\HasApiTokens;
  *
  * @package App\Models
  */
-class BARMAN extends Model
+class BARMAN extends Authenticatable
 {
 
     use HasApiTokens, HasFactory, Notifiable;
 	protected $table = 'BARMAN';
 	protected $primaryKey = 'ID_USER';
+    protected $guard = 'BARMAN';
 	public $timestamps = false;
 
 	protected $casts = [

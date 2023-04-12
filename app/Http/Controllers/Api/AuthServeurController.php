@@ -35,7 +35,7 @@ class AuthServeurController extends Controller
             $validateUser = Validator::make($request->all(),
                 [
                     'email' => 'required|email',
-                    'password' => 'required'
+                    'password' => ['required'],
                 ]);
 
             if ($validateUser->fails()) {
@@ -45,15 +45,14 @@ class AuthServeurController extends Controller
                     'errors' => $validateUser->errors()
                 ], 401);
             }
-
-            if (!Auth::attempt($request->only(['email', 'password']))) {
+            $user = BARMAN::where('MAIL', $request->email)->first();
+            //if (!Auth::guard('BARMAN')->attempt([$user->MAIL => $request->email, $user->MDP => $request->password])) {
+            if (!Auth::guard('BARMAN')->attempt(['MAIL' => $request->email, 'MDP' => $request->password])) {
                 return response()->json([
                     'status' => false,
                     'message' => 'Email & Password does not match with our record.',
                 ], 401);
             }
-
-            $user = BARMAN::where('MAIL', $request->email)->first();
 
             return response()->json([
                 'status' => true,
