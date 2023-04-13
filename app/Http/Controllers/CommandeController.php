@@ -69,7 +69,7 @@ class CommandeController extends Controller
         $commande->HEURECOMMANDE = now();
         $commande->save();
         $lastinsertID = $commande->IDCOMMANDE;
-        $commandeContenu = [18 => 15,5 => 10,3 => 14];
+        $commandeContenu = [18 => 15,5 => 10,7 => 14];
         foreach ($commandeContenu as $produit => $qte){
             $this->commandeAfond($lastinsertID,$produit,$qte);
         }
