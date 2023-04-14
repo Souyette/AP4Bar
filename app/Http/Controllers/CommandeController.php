@@ -68,10 +68,9 @@ class CommandeController extends Controller
         $commande->HEURECOMMANDE = now();
         $commande->save();
         $lastinsertID = $commande->IDCOMMANDE;
-        $commandeContenu = [18 => 15,5 => 10,3 => 14];
-        foreach ($commandeContenu as $produit => $qte){
-            $this->commandeAfond($lastinsertID,$produit,$qte);
-        }
+        foreach($request->order as $v){
+            $this->commandeAfond($lastinsertID,$v['id'],$v['quantite']);
+        };
 
         $commandeSurplace = new SURPLACE();
         $commandeSurplace->IDCOMMANDE = $lastinsertID;
