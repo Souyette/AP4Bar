@@ -37,9 +37,7 @@ class CommandeController extends Controller
               }
             ]';
 
-        $parsed_json = json_decode($request->order,true);
-
-        foreach($parsed_json as $v){
+        foreach($request->order as $v){
             $this->commandeAfond($lastinsertID,$v['id'],$v['qte']);
         };
 
