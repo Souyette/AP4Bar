@@ -25,15 +25,15 @@ class CommandeController extends Controller
         $arrayd = '[
               {
                   "id": 18,
-                "qte": 15
+                "quantite": 15
               },
               {
                   "id": 4,
-                "qte": 150
+                "quantite": 150
               },
               {
                   "id": 5,
-                "qte": 150
+                "quantite": 150
               }
             ]';
 
@@ -57,7 +57,7 @@ class CommandeController extends Controller
         $commandeAppartenir->save();
         //$infoEmail = \App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('client')->with('commande')->first();
         $infoEmail = \App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('user')->with('commande')->first();
-        //dd($test);
+        dd($infoEmail);
         $this->email($infoEmail);
 
         return response()->json(\App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('user')->with('commande')->get());
