@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AEMPORTER;
-use App\Models\Commande;
+use App\Models\COMMANDE;
 use App\Models\COMPOSER;
 use App\Models\RECOI;
 use App\Models\SURPLACE;
