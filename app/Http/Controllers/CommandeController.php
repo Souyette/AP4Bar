@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Mail;
 
 class CommandeController extends Controller
 {
-    public function ajoutCommandeEmporter(Request $request){
+    public function ajoutCommandeEmporter(Request $request,){
         $commande = new Commande();
         $commande->HEURECOMMANDE = now();
         $commande->save();
         $lastinsertID = $commande->IDCOMMANDE;
-
+        dd($request->order);
         $arrayd = '[
               {
                   "id": 18,
@@ -37,6 +37,7 @@ class CommandeController extends Controller
                 "qte": 150
               }
             ]';
+
         $parsed_json = json_decode($arrayd,true);
 
         foreach($parsed_json as $v){
