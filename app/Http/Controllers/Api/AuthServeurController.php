@@ -56,7 +56,8 @@ class AuthServeurController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("API TOKEN",['barman'])->plainTextToken
+                'token' => $user->createToken("API TOKEN",['barman'])->plainTextToken,
+                'idBar' => $user->ID_BAR,
             ], 200);
 
         } catch (\Throwable $th) {
