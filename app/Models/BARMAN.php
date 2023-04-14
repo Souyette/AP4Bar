@@ -74,4 +74,29 @@ class BARMAN extends Authenticatable
 	{
 		return $this->hasMany(SURPLACE::class, 'ID_USER');
 	}
+
+
+    /**
+     * Retourne le mot de passe de l'utilisateur
+     */
+    public function getAuthPassword()
+    {
+        return $this->MDP;
+    }
+
+    /**
+     * Retourne l'identifiant de l'utilisateur
+     */
+    public function getAuthIdentifier()
+    {
+        return $this->MAIL;
+    }
+
+    /**
+     * Retourne le nom de l'identifiant de l'utilisateur
+     */
+    public function getAuthIdentifierName()
+    {
+        return 'MAIL';
+    }
 }

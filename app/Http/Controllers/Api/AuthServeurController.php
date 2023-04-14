@@ -27,7 +27,6 @@ class AuthServeurController extends Controller
     /**
      * Login The User
      * @param Request $request
-     * @return BARMAN
      */
     public function loginServeur(Request $request)
     {
@@ -47,7 +46,7 @@ class AuthServeurController extends Controller
             }
             $user = BARMAN::where('MAIL', $request->email)->first();
             //if (!Auth::guard('BARMAN')->attempt([$user->MAIL => $request->email, $user->MDP => $request->password])) {
-            if (!Auth::guard('BARMAN')->attempt(['MAIL' => $request->email, 'MDP' => $request->password])) {
+            if (!Auth::guard('BARMAN')->attempt(['MAIL' => $request->email, 'password' => $request->password])) {
                 return response()->json([
                     'status' => false,
                     'message' => 'Email & Password does not match with our record.',

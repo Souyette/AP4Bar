@@ -22,27 +22,28 @@ class CommandeController extends Controller
         $commande->HEURECOMMANDE = now();
         $commande->save();
         $lastinsertID = $commande->IDCOMMANDE;
-        $commandeContenu = [18 => 15,5 => 10,3 => 14];
+
+        $arrayd = '[
+              {
+                  "id": 18,
+                "qte": 15
+              },
+              {
+                  "id": 4,
+                "qte": 150
+              },
+              {
+                  "id": 5,
+                "qte": 150
+              }
+            ]';
+        $parsed_json = json_decode($arrayd,true);
+
+        foreach($parsed_json as $v){
+            $this->commandeAfond($lastinsertID,$v['id'],$v['qte']);
+        };
 
 
-        foreach ($commandeContenu as $produit => $qte){
-        $this->commandeAfond($lastinsertID,$produit,$qte);
-        }
-
-        /*$array = [
-            [
-                'id' => 1,
-                'qte' => 2
-            ],
-            [
-                'id' => 2,
-                'qte' => 3
-            ]
-        ];
-
-        foreach ($array as $item) {
-            echo "ID : " . $item['id'] . ", Quantité : " . $item['qte'] . "<br>";
-        }*/
         $commandeEmporter = new AEMPORTER();
         $dateretrait = Carbon::now()->addHour(2);
         $commandeEmporter->IDCOMMANDE_HER_1 = $lastinsertID;
@@ -69,7 +70,7 @@ class CommandeController extends Controller
         $commande->HEURECOMMANDE = now();
         $commande->save();
         $lastinsertID = $commande->IDCOMMANDE;
-        $commandeContenu = [18 => 15,5 => 10,7 => 14];
+        $commandeContenu = [18 => 15,5 => 10,3 => 14];
         foreach ($commandeContenu as $produit => $qte){
             $this->commandeAfond($lastinsertID,$produit,$qte);
         }
