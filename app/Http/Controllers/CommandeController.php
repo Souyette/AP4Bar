@@ -22,7 +22,6 @@ class CommandeController extends Controller
         $commande->HEURECOMMANDE = now();
         $commande->save();
         $lastinsertID = $commande->IDCOMMANDE;
-        dd($request->order);
         $arrayd = '[
               {
                   "id": 18,
@@ -38,7 +37,7 @@ class CommandeController extends Controller
               }
             ]';
 
-        $parsed_json = json_decode($arrayd,true);
+        $parsed_json = json_decode($request->order,true);
 
         foreach($parsed_json as $v){
             $this->commandeAfond($lastinsertID,$v['id'],$v['qte']);
