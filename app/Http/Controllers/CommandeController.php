@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Mail;
 
 class CommandeController extends Controller
 {
-    public function ajoutCommandeEmporter(Request $request,){
+    public function ajoutCommandeEmporter(Request $request){
         $commande = new Commande();
         $commande->HEURECOMMANDE = now();
         $commande->save();
@@ -37,7 +37,7 @@ class CommandeController extends Controller
               }
             ]';
 
-        foreach($request->order as $v){
+        foreach($arrayd as $v){
             $this->commandeAfond($lastinsertID,$v['id'],$v['quantite']);
         };
 
