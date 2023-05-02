@@ -37,7 +37,7 @@ class CommandeController extends Controller
               }
             ]';
 
-        foreach($arrayd as $v){
+        foreach($request->order as $v){
             $this->commandeAfond($lastinsertID,$v['id'],$v['quantite']);
         };
 
