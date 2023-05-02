@@ -68,8 +68,8 @@ class CommandeController extends Controller
         $commande->HEURECOMMANDE = now();
         $commande->save();
         $lastinsertID = $commande->IDCOMMANDE;
-      
-        foreach($arrayd as $v){
+
+        foreach($request->arrayid as $v){
             $this->commandeAfond($lastinsertID,$v['id'],$v['quantite']);
         };
 
