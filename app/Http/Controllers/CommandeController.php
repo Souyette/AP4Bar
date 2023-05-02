@@ -57,7 +57,7 @@ class CommandeController extends Controller
         $commandeAppartenir->save();
         //$infoEmail = \App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('client')->with('commande')->first();
         $infoEmail = \App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('user')->with('commande')->first();
-        dd($infoEmail);
+        //dd($infoEmail);
         $this->email($infoEmail);
 
         return response()->json(\App\Models\AEMPORTER::where('ID_USER',$request->idClient)->where('IDCOMMANDE',$lastinsertID)->with('user')->with('commande')->get());
