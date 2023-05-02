@@ -25,15 +25,15 @@ class CommandeController extends Controller
         $arrayd = '[
               {
                   "id": 18,
-                "qte": 15
+                "quantite": 15
               },
               {
                   "id": 4,
-                "qte": 150
+                "quantite": 150
               },
               {
                   "id": 5,
-                "qte": 150
+                "quantite": 150
               }
             ]';
 
