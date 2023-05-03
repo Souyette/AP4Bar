@@ -38,7 +38,9 @@ class BAR extends Model
 
     //protected $with = ['typebar'];
 	protected $casts = [
-		'ID_TYPE' => 'int'
+		'ID_TYPE' => 'int',
+        'OUVERTURE' => 'string:H:i:s',
+        'FERMETURE' => 'string:H:i:s',
 	];
 
 	protected $dates = [

@@ -18,10 +18,10 @@ class StockerFactory extends Factory
     {
         return [
 
-            'ID_PRODUIT' => $this->faker->numberBetween(1, 40),
-            'ID_BAR' => $this->faker->numberBetween(1, 2),
-            'QUANTITESTOCK' => $this->faker->numberBetween(250, 500),
-            'PRIX' => $this->faker->numberBetween(5, 15),
+            'ID_PRODUIT' => $this->faker->numberBetween(1, 138),
+            'ID_BAR' => $this->faker->numberBetween(1, 15),
+            'QUANTITESTOCK' => $this->faker->numberBetween(80, 500),
+            'PRIX' => $this->faker->numberBetween(2, 25),
         ];
     }
 }

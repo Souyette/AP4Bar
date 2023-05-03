@@ -17,7 +17,7 @@ class NourritureFactory extends Factory
     public function definition()
     {
         return [
-            'ID_PRODUIT' => $this->faker->numberBetween(21, 40),
+            'ID_PRODUIT' => $this->faker->numberBetween(1, 40),
             'POIDS' => $this->faker->numberBetween(50, 250),
         ];
     }
