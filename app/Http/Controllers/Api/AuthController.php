@@ -34,9 +34,8 @@ class AuthController extends Controller
                         'required',
                         'min:6',
                         'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-                        'confirmed'
                     ],
-                    'password2' => 'required|same:password'
+                    'password2' => 'required'
                 ]);
 
             if($validateUser->fails()){
