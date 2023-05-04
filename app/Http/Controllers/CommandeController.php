@@ -82,7 +82,7 @@ class CommandeController extends Controller
                 "quantite": 150
               }
             ]';
-        foreach($arrayd as $v){
+        foreach($request->order as $v){
             $this->commandeAfond($lastinsertID,$v['id'],$v['quantite']);
         };
 
