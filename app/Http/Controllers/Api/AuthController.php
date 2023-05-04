@@ -41,7 +41,7 @@ class AuthController extends Controller
             if($validateUser->fails()){
                 return response()->json([
                     'status' => false,
-                    'message' => 'validation error',
+                    'message' => 'password is not strong enough',
                     'errors' => $validateUser->errors()
                 ], 401);
             }
