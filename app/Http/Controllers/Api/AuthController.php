@@ -41,7 +41,7 @@ class AuthController extends Controller
             if($validateUser->fails()){
                 return response()->json([
                     'status' => false,
-                    'message' => 'password is not strong enough',
+                    'message' => 'Mot de passe pas assez robuste',
                     'errors' => $validateUser->errors()
                 ], 401);
             }
@@ -56,7 +56,7 @@ class AuthController extends Controller
             else{
                 return response()->json([
                     'status' => false,
-                    'message' => 'Passwords do NOT match',
+                    'message' => 'Les mots de passe ne sont pas identique',
                 ], 401);
             }
 
