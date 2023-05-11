@@ -140,15 +140,18 @@ class AuthController extends Controller
     }
 
     function ModifClient(Request $request){
-        $userInfo = User::where('email', $request->email)->first();
-        dd($userInfo);
-        if($userInfo->password == $request->passwordVerif){
+        $userInfo = User::where('email', $request->emailModif)->first();
+        if(password_verify($request->passwordVerif,$userInfo->password)){
             $user = new User();
-            $user->name = $request->name;
             $user->email = $request->emailModif;
+            $user->name = $request->name;
             $user->save();
             return response()->json([
                 'message' => 'Profil modifié avec succès !']);
+        }
+        else {
+            return response()->json([
+                'message' => 'Mot de passe non valide']);
         }
     }
 

@@ -44,4 +44,5 @@ Route::middleware(['auth:sanctum', 'abilities:barman'])->group(function () {
 Route::middleware(['auth:sanctum', 'abilities:client'])->group(function () {
     Route::post('/ajoutCommande/emporter/{idClient}/{idBar}', ['App\Http\Controllers\CommandeController', 'ajoutCommandeEmporter']);
     Route::post('/auth/logout/client', ['App\Http\Controllers\Api\AuthController', 'logoutClient']);
+    Route::post('/auth/modifAccount', ['App\Http\Controllers\Api\AuthController', 'ModifClient']);
 });
