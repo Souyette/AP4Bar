@@ -25,6 +25,7 @@ class TYPEBAR extends Model
 	protected $primaryKey = 'ID_TYPE';
 	public $timestamps = false;
 
+
 	protected $fillable = [
 		'NOM_TYPE'
 	];

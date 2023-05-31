@@ -56,7 +56,7 @@ class BAR extends Model
 		'FERMETURE',
 		'ADRESSE'
 	];
-
+    protected $with = ['typebar'];
 	public function typebar()
 	{
 		return $this->belongsTo(TYPEBAR::class, 'ID_TYPE');
