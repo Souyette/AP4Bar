@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/Etablissement', ['App\Http\Controllers\BAR', 'listbar']);
+Route::get('/Etablissement/{type}', ['App\Http\Controllers\BAR', 'listbar']);
 Route::get('/BarInfo/{idBar}', ['App\Http\Controllers\BAR', 'BarInfo']);
 Route::post('/authentification', ['App\Http\Controllers\ClientController', 'authentifierUtilisateur']);
 Route::get('/GetProduits/{idBar}', ['App\Http\Controllers\ViewNourritureController', 'getNourriture']);

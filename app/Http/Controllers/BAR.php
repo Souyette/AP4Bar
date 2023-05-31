@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class BAR extends Controller
 {
-    public function listbar(Request $request){
+    public function listbar(Request $request,$type){
         //Création format JSON pour API
-        return response()->json(\App\Models\BAR::with('typebar')->get());
-        //return response()->json(\App\Models\BAR::where('id_typeetablissement',$request->idBar)->with('typebar')->get());
+        //return response()->json(\App\Models\BAR::with('typebar')->get());
+        return response()->json(\App\Models\BAR::where('id_type',$type)->with('typebar')->get());
     }
 
     public function BarInfo($idBar){
