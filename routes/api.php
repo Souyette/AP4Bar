@@ -16,13 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/Bar', ['App\Http\Controllers\BAR', 'listbar']);
+Route::get('/Etablissement', ['App\Http\Controllers\BAR', 'listbar']);
 Route::get('/BarInfo/{idBar}', ['App\Http\Controllers\BAR', 'BarInfo']);
 Route::post('/authentification', ['App\Http\Controllers\ClientController', 'authentifierUtilisateur']);
-Route::get('/GetNourriture/{idBar}', ['App\Http\Controllers\ViewNourritureController', 'getNourriture']);
+Route::get('/GetProduits/{idBar}', ['App\Http\Controllers\ViewNourritureController', 'getNourriture']);
 Route::get('/GetBoissons/Alcool/{idBar}', ['App\Http\Controllers\ViewBoissonsAlcoolController', 'getBoissonsAlcool']);
 Route::get('/GetBoissons/SansAlcool/{idBar}', ['App\Http\Controllers\ViewBoissonsSansAlcoolController', 'getBoissonsSansAlcool']);
-Route::get('/GetBoissons/{idBar}', ['App\Http\Controllers\ViewBoissonsController', 'getBoissons']);
+Route::get('/GetConsommations/{idBar}', ['App\Http\Controllers\ViewBoissonsController', 'getBoissons']);
 Route::post('/auth/register', ['App\Http\Controllers\Api\AuthController', 'createUser']);
 Route::post('/auth/login', ['App\Http\Controllers\Api\AuthController', 'loginUser'])->name('login');
 Route::post('/auth/loginServeur', ['App\Http\Controllers\Api\AuthServeurController', 'loginServeur'])->name('loginServeur');
