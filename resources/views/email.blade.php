@@ -12,7 +12,7 @@ border-width: 2px; border-radius: 10px;">Merci {{ $mailData['Nom'] }} d'avoir pa
 <p>Nom: {{ $mailData['Nom'] }}</p>
 <p>Heure de retrait : {{ $mailData['HeureRetrait'] }}</p>
 <p>Code de retrait: {{ $mailData['Code'] }}</p>
-<p>Type : {{ $mailData['Produit']->composer->stocker }}</p>
+<p>Type : {{ $mailData['Produit']->composer }}</p>
 <h1>Détails de la commande</h1>
 <?php $prixTotal = 0 ?>
 @foreach($mailData['Produit']->composer as $contenuCommande)
