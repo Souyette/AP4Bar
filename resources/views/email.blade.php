@@ -17,7 +17,6 @@ border-width: 2px; border-radius: 10px;">Merci {{ $mailData['Nom'] }} d'avoir pa
 @foreach($mailData['Produit']->composer as $contenuCommande)
     <p>Produit : {{ $contenuCommande->produit['NOM_PRODUIT'] }}</p>
     <p>Prix : {{ $contenuCommande->produit->stocker->pluck('PRIX')->first() }}</p>
-  <!--  <p>Type bar : {{ $contenuCommande['produit']['stocker'][0]['bar']['typebar']['NOM_TYPE'] }}</p> -->
     <?php $prixTotal += $contenuCommande->produit->stocker->pluck('PRIX')->first() ?>
 
 @endforeach
