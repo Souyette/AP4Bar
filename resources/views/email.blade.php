@@ -12,13 +12,12 @@ border-width: 2px; border-radius: 10px;">Merci {{ $mailData['Nom'] }} d'avoir pa
 <p>Nom: {{ $mailData['Nom'] }}</p>
 <p>Heure de retrait : {{ $mailData['HeureRetrait'] }}</p>
 <p>Code de retrait: {{ $mailData['Code'] }}</p>
-<p>Type : {{ $mailData['Produit']->composer[0]  }}</p>
 <h1>Détails de la commande</h1>
 <?php $prixTotal = 0 ?>
 @foreach($mailData['Produit']->composer as $contenuCommande)
     <p>Produit : {{ $contenuCommande->produit['NOM_PRODUIT'] }}</p>
     <p>Prix : {{ $contenuCommande->produit->stocker->pluck('PRIX')->first() }}</p>
-    <!--<p>Type bar : {{ $contenuCommande['produit']['stocker'][0]['bar']['typebar']['NOM_TYPE'] }}</p> -->
+    <p>Type bar : {{ $contenuCommande['produit']['stocker'][0]['bar']['typebar']['NOM_TYPE'] }}</p>
     <?php $prixTotal += $contenuCommande->produit->stocker->pluck('PRIX')->first() ?>
 
 @endforeach
